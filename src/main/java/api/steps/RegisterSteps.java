@@ -1,14 +1,14 @@
-package steps;
+package api.steps;
 
-import builders.Register;
+import api.builders.Register;
+import api.utils.ApiUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import lombok.SneakyThrows;
-import utils.BuilderUtil;
+import api.utils.BuilderUtil;
 
-import static consts.Endpoints.*;
-import static utils.ApiUtil.post;
+import static api.consts.Endpoints.*;
 
 public class RegisterSteps {
 
@@ -20,7 +20,7 @@ public class RegisterSteps {
     public Response addNewRegister(String email, String  password){
 
         Register register = builderUtil.buildRegister(email, password);
-        return post(CREATE_REGISTER, objectMapper.writeValueAsString(register));
+        return ApiUtil.post(CREATE_REGISTER, objectMapper.writeValueAsString(register));
     }
 
     @SneakyThrows
@@ -28,6 +28,6 @@ public class RegisterSteps {
     public Response addNewRegisterWithoutPassword(String email){
 
         Register register = builderUtil.buildRegisterWithoutPassword(email);
-        return post(CREATE_REGISTER, objectMapper.writeValueAsString(register));
+        return ApiUtil.post(CREATE_REGISTER, objectMapper.writeValueAsString(register));
     }
 }

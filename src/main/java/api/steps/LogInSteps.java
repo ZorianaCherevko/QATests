@@ -1,14 +1,14 @@
-package steps;
+package api.steps;
 
-import builders.LogIn;
+import api.builders.LogIn;
+import api.utils.ApiUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import lombok.SneakyThrows;
-import utils.BuilderUtil;
+import api.utils.BuilderUtil;
 
-import static consts.Endpoints.*;
-import static utils.ApiUtil.post;
+import static api.consts.Endpoints.*;
 
 public class LogInSteps {
 
@@ -19,13 +19,13 @@ public class LogInSteps {
     @Step("Add a new log in")
     public Response addNewLogIn(String email, String  password){
         LogIn logIn = builderUtil.buildLogIn(email, password);
-        return post(CREATE_LOG_IN, objectMapper.writeValueAsString(logIn));
+        return ApiUtil.post(CREATE_LOG_IN, objectMapper.writeValueAsString(logIn));
     }
 
     @SneakyThrows
     @Step("Add a new log in without a password field")
     public Response addNewLogInWithoutPassword(String email){
         LogIn logIn = builderUtil.buildLogInWithoutPassword(email);
-        return post(CREATE_LOG_IN, objectMapper.writeValueAsString(logIn));
+        return ApiUtil.post(CREATE_LOG_IN, objectMapper.writeValueAsString(logIn));
     }
 }

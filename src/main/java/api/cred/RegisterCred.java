@@ -1,4 +1,4 @@
-package test.cred;
+package api.cred;
 
 public class RegisterCred {
 

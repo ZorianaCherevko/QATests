@@ -1,8 +1,8 @@
-package utils;
+package api.utils;
 
-import builders.LogIn;
-import builders.Register;
-import builders.User;
+import api.builders.LogIn;
+import api.builders.Register;
+import api.builders.User;
 
 public class BuilderUtil {
 

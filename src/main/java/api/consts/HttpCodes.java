@@ -1,4 +1,4 @@
-package consts;
+package api.consts;
 
 public class HttpCodes {
 

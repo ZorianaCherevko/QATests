@@ -2,12 +2,12 @@ package api.tests;
 
 import jdk.jfr.Description;
 import org.testng.annotations.Test;
-import steps.RegisterSteps;
-import utils.BaseTest;
+import api.steps.RegisterSteps;
+import api.utils.BaseTest;
+import static api.consts.HttpCodes.*;
+import static api.cred.RegisterCred.*;
 
-import static consts.HttpCodes.*;
 import static org.testng.Assert.assertEquals;
-import static test.cred.RegisterCred.*;
 
 public class RegisterTests extends BaseTest {
 

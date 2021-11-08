@@ -1,4 +1,4 @@
-package utils;
+package api.utils;
 
 import io.restassured.RestAssured;
 import org.testng.annotations.BeforeTest;

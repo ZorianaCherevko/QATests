@@ -1,14 +1,15 @@
-package steps;
+package api.steps;
 
-import builders.User;
+import api.builders.User;
+import api.utils.ApiUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import lombok.SneakyThrows;
-import utils.BuilderUtil;
+import api.utils.BuilderUtil;
 
-import static consts.Endpoints.*;
-import static utils.ApiUtil.*;
+import static api.consts.Endpoints.*;
+import static api.utils.ApiUtil.*;
 
 public class UserSteps {
 
@@ -18,14 +19,14 @@ public class UserSteps {
     @SneakyThrows
     public Response addNewUser(String name, String  job){
         User user = builderUtil.buildUser(name, job);
-        return post(CREATE_USER, objectMapper.writeValueAsString(user));
+        return ApiUtil.post(CREATE_USER, objectMapper.writeValueAsString(user));
     }
 
     @SneakyThrows
     @Step("Add a new user without one field")
     public Response addNewUserWithoutAllFields(String name){
         User user = builderUtil.buildMinUser(name);
-        return post(CREATE_USER, objectMapper.writeValueAsString(user));
+        return ApiUtil.post(CREATE_USER, objectMapper.writeValueAsString(user));
     }
 
     @SneakyThrows
@@ -45,7 +46,7 @@ public class UserSteps {
     public Response updateNewUser(String name, String  newJob, int id){
 
         User user = builderUtil.buildUser(name, newJob);
-        return put(UPDATE_USER, objectMapper.writeValueAsString(user),id);
+        return ApiUtil.put(UPDATE_USER, objectMapper.writeValueAsString(user),id);
     }
 
 

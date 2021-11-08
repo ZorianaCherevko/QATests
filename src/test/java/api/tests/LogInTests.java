@@ -2,12 +2,12 @@ package api.tests;
 
 import jdk.jfr.Description;
 import org.testng.annotations.Test;
-import steps.LogInSteps;
-import utils.BaseTest;
+import api.steps.LogInSteps;
+import api.utils.BaseTest;
 
-import static consts.HttpCodes.*;
+import static api.consts.HttpCodes.*;
+import static api.cred.RegisterCred.*;
 import static org.testng.Assert.assertEquals;
-import static test.cred.RegisterCred.*;
 
 public class LogInTests extends BaseTest {
 
