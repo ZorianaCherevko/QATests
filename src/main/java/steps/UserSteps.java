@@ -22,22 +22,26 @@ public class UserSteps {
     }
 
     @SneakyThrows
+    @Step("Add a new user without one field")
     public Response addNewUserWithoutAllFields(String name){
         User user = builderUtil.buildMinUser(name);
         return post(CREATE_USER, objectMapper.writeValueAsString(user));
     }
 
     @SneakyThrows
+    @Step("Get a user info by a user id")
     public Response getInfoByUserId(int id){
         return get(GET_USER, id);
     }
 
     @SneakyThrows
+    @Step("Get a user info by a user id as a String value")
     public Response getInfoByUserIdAsString(String id){
         return get(GET_USER, id);
     }
 
     @SneakyThrows
+    @Step("Update a user info by a user id")
     public Response updateNewUser(String name, String  newJob, int id){
 
         User user = builderUtil.buildUser(name, newJob);

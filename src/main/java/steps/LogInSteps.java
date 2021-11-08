@@ -23,7 +23,7 @@ public class LogInSteps {
     }
 
     @SneakyThrows
-    @Step("Add a new log in")
+    @Step("Add a new log in without a password field")
     public Response addNewLogInWithoutPassword(String email){
         LogIn logIn = builderUtil.buildLogInWithoutPassword(email);
         return post(CREATE_LOG_IN, objectMapper.writeValueAsString(logIn));
