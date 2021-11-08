@@ -39,4 +39,16 @@ public class ApiUtil {
         Response resp = requestSpec.get(endpoint);
         return resp;
     }
+
+    public static Response get(String endpoint, String id){
+        RequestSpecification requestSpec = RestAssured.given();
+        requestSpec.contentType(ContentType.JSON);
+        requestSpec.accept(ContentType.JSON);
+        requestSpec.pathParam("user-id", id );
+        requestSpec.log().all();
+
+
+        Response resp = requestSpec.get(endpoint);
+        return resp;
+    }
 }

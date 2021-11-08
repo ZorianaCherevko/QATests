@@ -18,4 +18,10 @@ public class LogInTests extends BaseTest {
     public void checkThatCreateLogInWithValidDataReturns200(){
         assertEquals(logInSteps.addNewLogIn(USER_EMAIL, USER_PASSWORD ).getStatusCode(),OK);
     }
+
+    @Test
+    @Description("POST /api/login")
+    public void checkThatCreateLogInWithoutPasswordReturns400(){
+        assertEquals(logInSteps.addNewLogInWithoutPassword(USER_EMAIL).getStatusCode(),BAD_REQUEST);
+    }
 }

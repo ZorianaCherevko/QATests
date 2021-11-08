@@ -18,8 +18,14 @@ public class LogInSteps {
     @SneakyThrows
     @Step("Add a new log in")
     public Response addNewLogIn(String email, String  password){
-
         LogIn logIn = builderUtil.buildLogIn(email, password);
+        return post(CREATE_LOG_IN, objectMapper.writeValueAsString(logIn));
+    }
+
+    @SneakyThrows
+    @Step("Add a new log in")
+    public Response addNewLogInWithoutPassword(String email){
+        LogIn logIn = builderUtil.buildLogInWithoutPassword(email);
         return post(CREATE_LOG_IN, objectMapper.writeValueAsString(logIn));
     }
 }

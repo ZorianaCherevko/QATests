@@ -13,6 +13,12 @@ public class BuilderUtil {
                 .build();
     }
 
+    public User buildMinUser(String name){
+        return User.builder()
+                .name(name)
+                .build();
+    }
+
     public Register buildRegister(String email, String password){
         return Register.builder()
                 .email(email)
@@ -20,10 +26,22 @@ public class BuilderUtil {
                 .build();
     }
 
+    public Register buildRegisterWithoutPassword(String email){
+        return Register.builder()
+                .email(email)
+                .build();
+    }
+
     public LogIn buildLogIn(String email, String password){
         return LogIn.builder()
                 .email(email)
                 .password(password)
+                .build();
+    }
+
+    public LogIn buildLogInWithoutPassword(String email){
+        return LogIn.builder()
+                .email(email)
                 .build();
     }
 }

@@ -22,4 +22,12 @@ public class RegisterSteps {
         Register register = builderUtil.buildRegister(email, password);
         return post(CREATE_REGISTER, objectMapper.writeValueAsString(register));
     }
+
+    @SneakyThrows
+    @Step("Add a new register without a password field")
+    public Response addNewRegisterWithoutPassword(String email){
+
+        Register register = builderUtil.buildRegisterWithoutPassword(email);
+        return post(CREATE_REGISTER, objectMapper.writeValueAsString(register));
+    }
 }

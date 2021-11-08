@@ -19,6 +19,12 @@ public class RegisterTests extends BaseTest {
         assertEquals(registerSteps.addNewRegister(USER_EMAIL, USER_PASSWORD ).getStatusCode(),OK);
     }
 
+    @Test
+    @Description("POST /api/register")
+    public void checkThatCreateRegisterWithoutPasswordReturns400(){
+        assertEquals(registerSteps.addNewRegisterWithoutPassword(USER_EMAIL).getStatusCode(),BAD_REQUEST);
+    }
+
 
 
 

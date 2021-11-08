@@ -18,7 +18,7 @@ public class WishListTests extends BaseTests {
 
 
     @Test
-    public void checkThatUserCanCreateUpdateAndDeleteWishList() {
+    public void checkWishList() {
         getHomePageSteps.clickLogIn();
         getLogInPageSteps.logIn(EMAIL, PASSWORD);
         getAccountPageSteps.clickWishList();
@@ -26,6 +26,9 @@ public class WishListTests extends BaseTests {
         assertEquals(getWishListPageSteps.getTextOfAmountOfWishLists(), EXPECTED_AMOUNT_OF_WISH_LISTS);
         getWishListPageSteps.makeWishListPrivate();
         assertEquals(getWishListPageSteps.getPrivacyTagText(), PRIVACY_TAG);
+
+        //getWishListPageSteps.changeWishListName(WISH_LIST_NAME);
+        //assertEquals(getWishListPageSteps.getTextOWishListName(),WISH_LIST_NAME);
         getWishListPageSteps.deleteWishList();
         assertEquals(getWishListPageSteps.getTextOfWishPageCount(),EXPECTED_AMOUNT_OF_WISH_LISTS_AFTER_DELETING_ALL);
 
