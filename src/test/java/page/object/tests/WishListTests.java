@@ -18,7 +18,7 @@ public class WishListTests extends BaseTests {
 
 
     @Test
-    public void checkWishList() {
+    public void checkThatUserCanCreateUpdateAndDeleteWishList() {
         getHomePageSteps.clickLogIn();
         getLogInPageSteps.logIn(EMAIL, PASSWORD);
         getAccountPageSteps.clickWishList();
