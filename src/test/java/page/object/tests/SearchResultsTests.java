@@ -2,9 +2,14 @@ package page.object.tests;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.Keys;
 import org.testng.annotations.Test;
 import page.object.steps.*;
 import page.object.utils.BaseTests;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import static com.codeborne.selenide.Selenide.back;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
@@ -128,7 +133,5 @@ public class SearchResultsTests extends BaseTests {
             assertFalse(element.getText().contains(SEARCH_KEYWORD));
         }
     }
-
-
 
 }

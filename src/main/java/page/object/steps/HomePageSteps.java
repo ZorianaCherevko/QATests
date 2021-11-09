@@ -1,6 +1,8 @@
 package page.object.steps;
 
+import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.Keys;
 import page.object.pages.HomePage;
@@ -13,6 +15,7 @@ public class HomePageSteps {
         homePage.searchInput.sendKeys(keyword);
         homePage.searchButton.click();
     }
+
 
     public void clickClearHistory(){
         homePage.clearHistoryButton.click();
@@ -34,8 +37,10 @@ public class HomePageSteps {
         return homePage.dropDownListResults.size();
     }
 
+
+
     public SelenideElement getDropDownList(){
-        return homePage.dropDownList;
+        return homePage.dropDownList.shouldBe(Condition.visible);
     }
 
     public SelenideElement getSearchInput(){

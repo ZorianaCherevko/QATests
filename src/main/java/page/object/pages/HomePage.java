@@ -13,6 +13,7 @@ public class HomePage {
     public SelenideElement searchButton = $(xpath("//form/button"));
     public SelenideElement logInButton = $(xpath("//div[@class='zg-header-menu']//a[contains(@href,'account')]"));
     public SelenideElement clearHistoryButton = $(xpath("//a[@id='zgs-clear-recent']"));
+    //public ElementsCollection dropDownSuggestions = $$(xpath("//div[@id='zgs-dropdown-results']"));
     public SelenideElement dropDownList = $(xpath("//div[@id='zgs-dropdown-results']"));
     public ElementsCollection dropDownListResults = $$(xpath("//div[@id='zgs-dropdown-results']//a[contains(@href,'search-results/?query')]"));
 }
