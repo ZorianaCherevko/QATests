@@ -121,6 +121,14 @@ public class SearchResultsTests extends BaseTests {
         }
     }
 
+    @Test
+    public void checkThatKeywordsWithoutSpacesShowNotRelevantResults() {
+        getHomePageSteps.searchByKeyword(SEARCH_KEYWORD_NO_SPACES);
+        for (SelenideElement element : getSearchResultsPageSteps.getSearchResultsList()) {
+            assertFalse(element.getText().contains(SEARCH_KEYWORD));
+        }
+    }
+
 
 
 }
