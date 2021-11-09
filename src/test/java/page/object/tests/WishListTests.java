@@ -5,7 +5,7 @@ import page.object.steps.*;
 import page.object.utils.BaseTests;
 
 import static org.testng.Assert.*;
-import static page.object.test.cred.TestData.*;
+import static page.object.test.cred.WishListData.*;
 import static page.object.test.cred.UserCred.EMAIL;
 import static page.object.test.cred.UserCred.PASSWORD;
 

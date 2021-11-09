@@ -8,7 +8,8 @@ import page.object.utils.BaseTests;
 import static com.codeborne.selenide.Selenide.back;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.testng.Assert.*;
-import static page.object.test.cred.TestData.*;
+import static page.object.test.cred.SearchKeywords.*;
+import static page.object.test.cred.Urls.*;
 
 
 public class SearchResultsTests extends BaseTests {
@@ -33,7 +34,7 @@ public class SearchResultsTests extends BaseTests {
     @Test
     public void checkThatSearchResultsAreNotDisplayedWithLessThanMinCharsLimit() {
         for (int i=1;i<=2;i++){
-            getHomePageSteps.searchByKeyword("a");
+            getHomePageSteps.searchByKeyword(SEARCH_CHAR);
             assertEquals(getWebDriver().getCurrentUrl(), BASE_URL);
         }
     }
@@ -49,7 +50,7 @@ public class SearchResultsTests extends BaseTests {
     @Test
     public void checkThatSearchHistoryIsDisplayed() {
         getHomePageSteps.searchByKeyword(SEARCH_KEYWORD);
-        getHomePageSteps.searchByKeyword("King");
+        getHomePageSteps.searchByKeyword(SECOND_SEARCH_KEYWORD);
         getHomePageSteps.clickSearchInput();
         assertEquals(getHomePageSteps.getDropDownListSize(), 2);
     }
@@ -57,7 +58,7 @@ public class SearchResultsTests extends BaseTests {
     @Test
     public void checkThatSearchClearHistoryWorks() {
         getHomePageSteps.searchByKeyword(SEARCH_KEYWORD);
-        getHomePageSteps.searchByKeyword("King");
+        getHomePageSteps.searchByKeyword(SECOND_SEARCH_KEYWORD);
         getHomePageSteps.clickSearchInput();
         getHomePageSteps.clickClearHistory();
         getHomePageSteps.clickSearchInput();
@@ -99,7 +100,7 @@ public class SearchResultsTests extends BaseTests {
     }
 
     @Test
-    public void checkThatSearchResultsCountMatchesSizeofSearhResultsList() {
+    public void checkThatSearchResultsCountMatchesSizeofSearchResultsList() {
         getHomePageSteps.searchByKeyword(SEARCH_KEYWORD);
         assertEquals(getSearchResultsPageSteps.getSearchResultsListSize(),5 );
     }
