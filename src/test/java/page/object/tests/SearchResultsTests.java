@@ -107,11 +107,20 @@ public class SearchResultsTests extends BaseTests {
     }
 
     @Test
-    public void checkDeleteInput() {
+    public void checkUserCanEraseInput() {
         getHomePageSteps.searchByKeyword(SEARCH_KEYWORD);
         getHomePageSteps.deleteInputText();
         assertTrue(getHomePageSteps.getSearchInput().is(Condition.empty));
     }
+
+    @Test
+    public void checkThatSpacesNotAffectSearchResults() {
+        getHomePageSteps.searchByKeyword(SEARCH_KEYWORD_WITH_SPACES);
+        for (SelenideElement element : getSearchResultsPageSteps.getSearchResultsList()) {
+            assertTrue(element.getText().contains(SEARCH_KEYWORD));
+        }
+    }
+
 
 
 }

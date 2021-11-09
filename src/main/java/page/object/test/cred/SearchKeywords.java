@@ -10,4 +10,5 @@ public class SearchKeywords {
     public static String SEARCH_KEYWORD_NUMBERS_LETTERS = "dune35";
     public static String SEARCH_KEYWORD_NUMBERS_LETTERS_SYMBOLS = "dune35@";
     public static String SEARCH_CHAR = "a";
+    public static String SEARCH_KEYWORD_WITH_SPACES = " Dune: Adventures in the Imperium ";
 }
