@@ -9,7 +9,7 @@ public class WishListPage {
 
     public SelenideElement createWishListButton = $(xpath("//button[@class='wishlist-create-trigger wishlist-button wishlist-button-icon-before wishlist-button-primary']"));
     public SelenideElement wishListPageCount = $(xpath("//span[@class='wishlist-page-header-count']"));
-    public SelenideElement createWishListWithNameButton = $(xpath("//button[contains(text(),'Create Wish List')]"));
+    public SelenideElement createWishListWithNameButton = $(xpath("//button[@id='wishlist-create-button']"));
     public SelenideElement wishListNameInput = $(xpath("//input[@id='wishlist-create-name']"));
     public SelenideElement createdListButton = $(xpath("//div[@class='wishlist-account-item-info']"));
 

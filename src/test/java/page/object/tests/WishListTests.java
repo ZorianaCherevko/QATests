@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 import page.object.steps.*;
 import page.object.utils.BaseTests;
 
-import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.*;
 import static page.object.test.cred.TestData.*;
 import static page.object.test.cred.UserCred.EMAIL;
 import static page.object.test.cred.UserCred.PASSWORD;
@@ -45,8 +45,17 @@ public class WishListTests extends BaseTests {
         getCreatedWishListPageSteps.deleteWishList();
         assertEquals(getWishListPageSteps.getTextOfWishPageCount(),EXPECTED_AMOUNT_OF_WISH_LISTS_AFTER_DELETING_ALL);
     }
+
+    @Test
+    public void checkCreateMoreThanFiveWishList() {
+        getHomePageSteps.clickLogIn();
+        getLogInPageSteps.logIn(EMAIL, PASSWORD);
+        getAccountPageSteps.clickWishList();
+        getWishListPageSteps.createNewWishList();
+        for(int i=1;i<=4;i++) {
+            getCreatedWishListPageSteps.createNewWishList();
+        }
+        assertFalse(getCreatedWishListPageSteps.getCreateWishListButton().exists());
+    }
 }
 
-
-//getWishListPageSteps.changeWishListName(WISH_LIST_NAME);
-//assertEquals(getWishListPageSteps.getTextOWishListName(),WISH_LIST_NAME);

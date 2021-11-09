@@ -1,6 +1,7 @@
 package page.object.steps;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.SelenideElement;
 import page.object.pages.CreatedWishListPage;
 
 public class CreatedWishListPageSteps {
@@ -9,6 +10,10 @@ public class CreatedWishListPageSteps {
 
     public String getTextOfAmountOfWishLists(){
         return createdWishListPage.amountOfWishLists.shouldBe(Condition.appear).getText();
+    }
+
+    public SelenideElement getCreateWishListButton(){
+        return createdWishListPage.createWishListButton.shouldBe(Condition.hidden);
     }
 
     public void changeWishListName(String keyword){
@@ -35,5 +40,10 @@ public class CreatedWishListPageSteps {
 
     public String getPrivacyTagText(){
         return createdWishListPage.privacyTag.shouldBe(Condition.appear).getText();
+    }
+
+    public void createNewWishList(){
+       createdWishListPage.createWishListButton.shouldBe(Condition.visible).click();
+       createdWishListPage.createWishListWithNameButton.shouldBe(Condition.visible).click();
     }
 }
