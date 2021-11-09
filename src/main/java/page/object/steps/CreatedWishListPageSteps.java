@@ -33,13 +33,17 @@ public class CreatedWishListPageSteps {
         createdWishListPage.saveChangesButton.click();
     }
 
+    public void clickAddProducts(){
+        createdWishListPage.addProductsButton.click();
+    }
+
     public String getTextOWishListName(){
         return createdWishListPage.wishListName.shouldBe(Condition.appear).getText();
     }
 
     public void deleteWishList(){
         createdWishListPage.settingsButton.shouldBe(Condition.visible).click();
-        createdWishListPage.deleteWishButton.doubleClick();
+        createdWishListPage.deleteWishButton.doubleClick().doubleClick();
     }
 
     public String getPrivacyTagText(){

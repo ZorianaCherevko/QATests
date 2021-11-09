@@ -13,7 +13,7 @@ public class HomePageSteps {
 
     public void searchByKeyword(String keyword){
         homePage.searchInput.sendKeys(keyword);
-        homePage.searchButton.click();
+        homePage.searchButton.shouldBe(Condition.visible).click();
     }
 
 

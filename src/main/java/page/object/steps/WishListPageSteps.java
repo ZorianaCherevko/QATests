@@ -1,6 +1,7 @@
 package page.object.steps;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.SelenideElement;
 import page.object.pages.WishListPage;
 
 public class WishListPageSteps {
@@ -17,7 +18,11 @@ public class WishListPageSteps {
     }
 
     public String getTextOfWishPageCount(){
-        return wishListPage.wishListPageCount.shouldBe(Condition.appear).getText();
+        return wishListPage.wishListPageCount.shouldBe(Condition.exist).getText();
+    }
+
+    public SelenideElement getWishPageCount(){
+        return wishListPage.wishListPageCount.shouldBe(Condition.visible);
     }
 
 }

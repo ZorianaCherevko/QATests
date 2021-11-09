@@ -16,5 +16,6 @@ public class CreatedWishListPage {
     public SelenideElement makePrivateButton = $(xpath("//input[@id='wishlist-edit-private']"));
     public SelenideElement privacyTag = $(xpath("//span[@class='wishlist-privacy-private active']"));
     public SelenideElement createWishListWithNameButton = $(xpath("//button[@id='wishlist-create-button']"));
+    public SelenideElement addProductsButton = $(xpath("//div[@class='wishlist-empty-text']//a[contains(@href,'board')]"));
     public SelenideElement createWishListButton = $(xpath("//button[@class='wishlist-create-trigger wishlist-button wishlist-button-icon-before wishlist-button-primary']"));
 }
