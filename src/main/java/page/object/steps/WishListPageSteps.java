@@ -19,7 +19,7 @@ public class WishListPageSteps {
     public void changeWishListName(String keyword){
         wishListPage.settingsButton.shouldBe(Condition.visible).click();
         wishListPage.wishListNameInput.shouldBe(Condition.appear).clear();
-        wishListPage.wishListNameInput.sendKeys(keyword);
+        wishListPage.wishListNameInput.setValue(keyword);
         wishListPage.saveChangesButton.click();
     }
 
