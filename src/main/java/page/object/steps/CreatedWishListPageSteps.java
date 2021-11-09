@@ -2,6 +2,8 @@ package page.object.steps;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import lombok.SneakyThrows;
+import org.openqa.selenium.Keys;
 import page.object.pages.CreatedWishListPage;
 
 public class CreatedWishListPageSteps {
@@ -16,10 +18,12 @@ public class CreatedWishListPageSteps {
         return createdWishListPage.createWishListButton.shouldBe(Condition.hidden);
     }
 
-    public void changeWishListName(String keyword){
+    @SneakyThrows
+    public void changeWishListName(String key){
         createdWishListPage.settingsButton.shouldBe(Condition.visible).click();
-        createdWishListPage.wishListNameInput.shouldBe(Condition.appear).clear();
-        createdWishListPage.wishListNameInput.setValue(keyword);
+        createdWishListPage.wishListNameInput.shouldBe(Condition.visible);
+        createdWishListPage.wishListNameInput.sendKeys(key);
+
         createdWishListPage.saveChangesButton.click();
     }
 

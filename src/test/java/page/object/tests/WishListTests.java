@@ -57,5 +57,14 @@ public class WishListTests extends BaseTests {
         }
         assertFalse(getCreatedWishListPageSteps.getCreateWishListButton().isDisplayed());
     }
+
+    @Test
+    public void checkCreateWishListt() {
+        getHomePageSteps.clickLogIn();
+        getLogInPageSteps.logIn(EMAIL, PASSWORD);
+        getAccountPageSteps.clickWishList();
+        getWishListPageSteps.createNewWishList();
+        getCreatedWishListPageSteps.changeWishListName("bla bla bla");
+    }
 }
 

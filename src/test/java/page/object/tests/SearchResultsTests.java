@@ -1,5 +1,6 @@
 package page.object.tests;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.testng.annotations.Test;
 import page.object.steps.*;
@@ -103,6 +104,13 @@ public class SearchResultsTests extends BaseTests {
     public void checkThatSearchResultsCountMatchesSizeofSearchResultsList() {
         getHomePageSteps.searchByKeyword(SEARCH_KEYWORD);
         assertEquals(getSearchResultsPageSteps.getSearchResultsListSize(),5 );
+    }
+
+    @Test
+    public void checkDeleteInput() {
+        getHomePageSteps.searchByKeyword(SEARCH_KEYWORD);
+        getHomePageSteps.deleteInputText();
+        assertTrue(getHomePageSteps.getSearchInput().is(Condition.empty));
     }
 
 
