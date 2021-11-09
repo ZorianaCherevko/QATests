@@ -12,38 +12,12 @@ public class WishListPageSteps {
         wishListPage.createWishListWithNameButton.shouldBe(Condition.visible).click();
     }
 
-    public String getTextOfAmountOfWishLists(){
-        return wishListPage.amountOfWishLists.shouldBe(Condition.appear).getText();
-    }
-
-    public void changeWishListName(String keyword){
-        wishListPage.settingsButton.shouldBe(Condition.visible).click();
-        wishListPage.wishListNameInput.shouldBe(Condition.appear).clear();
-        wishListPage.wishListNameInput.setValue(keyword);
-        wishListPage.saveChangesButton.click();
-    }
-
-    public void makeWishListPrivate(){
-        wishListPage.settingsButton.shouldBe(Condition.visible).click();
-        wishListPage.makePrivateButton.click();
-        wishListPage.saveChangesButton.click();
-    }
-
-    public String getTextOWishListName(){
-        return wishListPage.wishListName.shouldBe(Condition.appear).getText();
-    }
-
-    public void deleteWishList(){
-        wishListPage.settingsButton.shouldBe(Condition.visible).click();
-        wishListPage.deleteWishButton.doubleClick();
+    public void clickCreatedList(){
+        wishListPage.createdListButton.shouldBe(Condition.visible).click();
     }
 
     public String getTextOfWishPageCount(){
         return wishListPage.wishListPageCount.shouldBe(Condition.appear).getText();
     }
-    public String getPrivacyTagText(){
-        return wishListPage.privacyTag.shouldBe(Condition.appear).getText();
-    }
-
 
 }

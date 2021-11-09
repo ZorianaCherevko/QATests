@@ -15,23 +15,38 @@ public class WishListTests extends BaseTests {
     public LogInPageSteps getLogInPageSteps = new LogInPageSteps();
     public AccountPageSteps getAccountPageSteps = new AccountPageSteps();
     public WishListPageSteps getWishListPageSteps = new WishListPageSteps();
+    public CreatedWishListPageSteps getCreatedWishListPageSteps = new CreatedWishListPageSteps();
 
 
     @Test
-    public void checkWishList() {
+    public void checkCreateWishList() {
         getHomePageSteps.clickLogIn();
         getLogInPageSteps.logIn(EMAIL, PASSWORD);
         getAccountPageSteps.clickWishList();
         getWishListPageSteps.createNewWishList();
-        assertEquals(getWishListPageSteps.getTextOfAmountOfWishLists(), EXPECTED_AMOUNT_OF_WISH_LISTS);
-        //getWishListPageSteps.makeWishListPrivate();
-        //assertEquals(getWishListPageSteps.getPrivacyTagText(), PRIVACY_TAG);
+        assertEquals(getCreatedWishListPageSteps.getTextOfAmountOfWishLists(), EXPECTED_AMOUNT_OF_WISH_LISTS);
+    }
 
-        getWishListPageSteps.changeWishListName(WISH_LIST_NAME);
-        assertEquals(getWishListPageSteps.getTextOWishListName(),WISH_LIST_NAME);
-        getWishListPageSteps.deleteWishList();
+    @Test
+    public void checkUpdateWishList() {
+        getHomePageSteps.clickLogIn();
+        getLogInPageSteps.logIn(EMAIL, PASSWORD);
+        getAccountPageSteps.clickWishList();
+        getWishListPageSteps.clickCreatedList();
+        getCreatedWishListPageSteps.makeWishListPrivate();
+        assertEquals(getCreatedWishListPageSteps.getPrivacyTagText(), PRIVACY_TAG);
+    }
+    @Test
+    public void checkDeleteWishList() {
+        getHomePageSteps.clickLogIn();
+        getLogInPageSteps.logIn(EMAIL, PASSWORD);
+        getAccountPageSteps.clickWishList();
+        getWishListPageSteps.clickCreatedList();
+        getCreatedWishListPageSteps.deleteWishList();
         assertEquals(getWishListPageSteps.getTextOfWishPageCount(),EXPECTED_AMOUNT_OF_WISH_LISTS_AFTER_DELETING_ALL);
-
-
     }
 }
+
+
+//getWishListPageSteps.changeWishListName(WISH_LIST_NAME);
+//assertEquals(getWishListPageSteps.getTextOWishListName(),WISH_LIST_NAME);
