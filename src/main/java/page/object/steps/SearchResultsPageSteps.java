@@ -13,6 +13,17 @@ public class SearchResultsPageSteps {
         return searchResultsPage.searchResultProductsListText;
     }
 
+    public void clickThreeAddToWishlistButtons(){
+        for(int i = 1; i<=3; i++) {
+            searchResultsPage.addToWishListButtons.get(i).click();
+            searchResultsPage.wishListCheckbox.shouldBe(Condition.visible).click();
+            searchResultsPage.saveWishListButton.click();
+        }
+    }
+
+    public void clickGoToWishList(){
+        searchResultsPage.goToWishListButton.click();
+    }
     public void clickFirstSearchResult(){
         searchResultsPage.searchResultProduct.click();
     }
