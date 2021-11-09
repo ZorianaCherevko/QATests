@@ -2,6 +2,7 @@ package page.object.steps;
 
 import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.SelenideElement;
 import page.object.pages.HomePage;
 
 public class HomePageSteps {
@@ -13,10 +14,9 @@ public class HomePageSteps {
         homePage.searchButton.click();
     }
 
-    public void inputByKeyword(String keyword){
-        homePage.searchInput.sendKeys(keyword);
+    public void clickClearHistory(){
+        homePage.clearHistoryButton.click();
     }
-
     public void clickSearchButton(){
         homePage.searchButton.click();
     }
@@ -29,8 +29,12 @@ public class HomePageSteps {
         homePage.logInButton.click();
     }
 
-    public int getDropDownList(){
+    public int getDropDownListSize(){
         return homePage.dropDownListResults.size();
+    }
+
+    public SelenideElement getDropDownList(){
+        return homePage.dropDownList;
     }
 
 

@@ -5,9 +5,9 @@ import org.testng.annotations.Test;
 import page.object.steps.*;
 import page.object.utils.BaseTests;
 
+import static com.codeborne.selenide.Selenide.back;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
+import static org.testng.Assert.*;
 import static page.object.test.cred.TestData.*;
 
 
@@ -47,11 +47,61 @@ public class SearchResultsTests extends BaseTests {
     }
 
     @Test
-    public void checkThatSymbolsNotEffectOnRelevantSearchReslts() {
+    public void checkThatSearchHistoryIsDisplayed() {
         getHomePageSteps.searchByKeyword(SEARCH_KEYWORD);
         getHomePageSteps.searchByKeyword("King");
         getHomePageSteps.clickSearchInput();
-        assertEquals(getHomePageSteps.getDropDownList(), 2);
+        assertEquals(getHomePageSteps.getDropDownListSize(), 2);
+    }
+
+    @Test
+    public void checkThatSearchClearHistoryWorks() {
+        getHomePageSteps.searchByKeyword(SEARCH_KEYWORD);
+        getHomePageSteps.searchByKeyword("King");
+        getHomePageSteps.clickSearchInput();
+        getHomePageSteps.clickClearHistory();
+        getHomePageSteps.clickSearchInput();
+        assertFalse(getHomePageSteps.getDropDownList().isDisplayed());
+    }
+
+    @Test
+    public void checkThatSearchResultsAreNotDisplayedWhenEnteringSpecialSymbols() {
+        getHomePageSteps.searchByKeyword(SEARCH_KEYWORD_ONLY_SYMBOLS);
+        assertEquals(getWebDriver().getCurrentUrl(), BASE_URL);
+    }
+
+    @Test
+    public void checkThatSearchIsPossibleWhenEnteringNumbers() {
+        getHomePageSteps.searchByKeyword(SEARCH_KEYWORD_ONLY_NUMBERS);
+        assertTrue(getWebDriver().getCurrentUrl().contains(QUERY_URL));
+    }
+
+    @Test
+    public void checkThatSearchIsPossibleWhenEnteringLetterAndNumbers() {
+        getHomePageSteps.searchByKeyword(SEARCH_KEYWORD_NUMBERS_LETTERS);
+        assertTrue(getWebDriver().getCurrentUrl().contains(QUERY_URL));
+    }
+
+    @Test
+    public void checkThatSearchIsPossibleWhenEnteringLetterNumbersAndSymbols() {
+        getHomePageSteps.searchByKeyword(SEARCH_KEYWORD_NUMBERS_LETTERS_SYMBOLS);
+        assertTrue(getWebDriver().getCurrentUrl().contains(QUERY_URL));
+    }
+
+    @Test
+    public void checkThatSearchResultsAreMaintainedAfterNavigatingBack() {
+        getHomePageSteps.searchByKeyword(SEARCH_KEYWORD);
+        getSearchResultsPageSteps.clickFirstSearchResult();
+        back();
+        for (SelenideElement element : getSearchResultsPageSteps.getSearchResultsList()) {
+            assertTrue(element.getText().contains(SEARCH_KEYWORD));
+        }
+    }
+
+    @Test
+    public void checkThatSearchResultsCountMatchesSizeofSearhResultsList() {
+        getHomePageSteps.searchByKeyword(SEARCH_KEYWORD);
+        assertEquals(getSearchResultsPageSteps.getSearchResultsListSize(),5 );
     }
 
 

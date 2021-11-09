@@ -9,12 +9,14 @@ public class TestData {
     public static String WISH_LIST_NAME = "Interesting";
 
     public static String BASE_URL = "https://www.board-game.co.uk/";
+    public static String QUERY_URL = "query";
 
     public static String SEARCH_KEYWORD = "Dune: Adventures in the Imperium";
     public static String SEARCH_KEYWORD_WITH_SYMBOLS = "@{Dune: !Adventures in the Imperium}";
     public static String SEARCH_KEYWORD_ONLY_SYMBOLS = "@#%^&&**(())))_++";
-    public static int SEARCH_KEYWORD_ONLY_NUMBERS;
-    public static String SEARCH_KEYWORD_NUMBERS_LETTERS;
+    public static String SEARCH_KEYWORD_ONLY_NUMBERS = "234589658";
+    public static String SEARCH_KEYWORD_NUMBERS_LETTERS = "dune35";
+    public static String SEARCH_KEYWORD_NUMBERS_LETTERS_SYMBOLS = "dune35@";
 
 
 

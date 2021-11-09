@@ -52,10 +52,10 @@ public class WishListTests extends BaseTests {
         getLogInPageSteps.logIn(EMAIL, PASSWORD);
         getAccountPageSteps.clickWishList();
         getWishListPageSteps.createNewWishList();
-        for(int i=1;i<=4;i++) {
+        for(int i=1;i<5;i++) {
             getCreatedWishListPageSteps.createNewWishList();
         }
-        assertFalse(getCreatedWishListPageSteps.getCreateWishListButton().exists());
+        assertFalse(getCreatedWishListPageSteps.getCreateWishListButton().isDisplayed());
     }
 }
 

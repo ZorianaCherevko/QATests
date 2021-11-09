@@ -44,6 +44,6 @@ public class CreatedWishListPageSteps {
 
     public void createNewWishList(){
        createdWishListPage.createWishListButton.shouldBe(Condition.visible).click();
-       createdWishListPage.createWishListWithNameButton.shouldBe(Condition.visible).click();
+       createdWishListPage.createWishListWithNameButton.shouldBe(Condition.appear).click();
     }
 }

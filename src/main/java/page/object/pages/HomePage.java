@@ -12,5 +12,7 @@ public class HomePage {
     public SelenideElement searchInput = $(xpath("//input[@type='search']"));
     public SelenideElement searchButton = $(xpath("//form/button"));
     public SelenideElement logInButton = $(xpath("//div[@class='zg-header-menu']//a[contains(@href,'account')]"));
+    public SelenideElement clearHistoryButton = $(xpath("//a[@id='zgs-clear-recent']"));
+    public SelenideElement dropDownList = $(xpath("//div[@id='zgs-dropdown-results']"));
     public ElementsCollection dropDownListResults = $$(xpath("//div[@id='zgs-dropdown-results']//a[contains(@href,'search-results/?query')]"));
 }
