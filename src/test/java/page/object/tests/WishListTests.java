@@ -4,7 +4,6 @@ import org.testng.annotations.Test;
 import page.object.steps.*;
 import page.object.utils.BaseTests;
 
-import static java.time.zone.ZoneRulesProvider.refresh;
 import static org.testng.Assert.*;
 import static page.object.test.cred.SearchKeywords.SEARCH_KEYWORD;
 import static page.object.test.cred.WishListData.*;
@@ -45,7 +44,7 @@ public class WishListTests extends BaseTests {
         getHomePageSteps.clickLogIn();
         getLogInPageSteps.logIn(EMAIL, PASSWORD);
         getAccountPageSteps.clickWishList();
-        getWishListPageSteps.clickCreatedList();
+        getWishListPageSteps.createNewWishList();
         getCreatedWishListPageSteps.deleteWishList();
         assertEquals(getWishListPageSteps.getTextOfWishPageCount(),EXPECTED_AMOUNT_OF_WISH_LISTS_AFTER_DELETING_ALL);
     }
@@ -56,7 +55,7 @@ public class WishListTests extends BaseTests {
         getLogInPageSteps.logIn(EMAIL, PASSWORD);
         getAccountPageSteps.clickWishList();
         getWishListPageSteps.createNewWishList();
-        for(int i=1;i<5;i++) {
+        for(int i=1;i<=4;i++) {
             getCreatedWishListPageSteps.createNewWishList();
         }
         assertFalse(getCreatedWishListPageSteps.getCreateWishListButton().isDisplayed());

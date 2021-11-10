@@ -10,7 +10,6 @@ import java.util.Objects;
 public class WishListPageSteps {
 
     public WishListPage wishListPage = new WishListPage();
-
     public CreatedWishListPage createdWishListPage = new CreatedWishListPage();
 
     public void createNewWishList(){
@@ -35,7 +34,6 @@ public class WishListPageSteps {
     }
 
     public void deleteAllWishLists(){
-        //wishListPage.createdListHeaderButton.shouldBe(Condition.visible);
         while(!Objects.equals(getTextOfWishPageCount(), "(0/5)")) {
             wishListPage.createdListHeaderButton.click();
             createdWishListPage.settingsButton.click();

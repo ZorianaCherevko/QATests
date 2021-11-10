@@ -20,7 +20,6 @@ public class HomePageSteps {
         homePage.searchInput.sendKeys(keyword);
     }
 
-
     public void clickClearHistory(){
         homePage.clearHistoryButton.click();
     }
@@ -44,7 +43,6 @@ public class HomePageSteps {
     public SelenideElement getDropDownList(){
         return homePage.dropDownList;
     }
-
 
     public SelenideElement getSearchInput(){
         return homePage.searchInput;

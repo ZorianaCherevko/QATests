@@ -2,8 +2,6 @@ package page.object.steps;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
-import lombok.SneakyThrows;
-import org.openqa.selenium.Keys;
 import page.object.pages.CreatedWishListPage;
 
 public class CreatedWishListPageSteps {
@@ -18,14 +16,6 @@ public class CreatedWishListPageSteps {
         return createdWishListPage.createWishListButton.shouldBe(Condition.hidden);
     }
 
-    @SneakyThrows
-    public void changeWishListName(String key){
-        createdWishListPage.settingsButton.shouldBe(Condition.visible).click();
-        createdWishListPage.wishListNameInput.shouldBe(Condition.visible);
-        createdWishListPage.wishListNameInput.sendKeys(key);
-
-        createdWishListPage.saveChangesButton.click();
-    }
 
     public void makeWishListPrivate(){
         createdWishListPage.settingsButton.shouldBe(Condition.visible).click();
@@ -37,13 +27,11 @@ public class CreatedWishListPageSteps {
         createdWishListPage.addProductsButton.click();
     }
 
-    public String getTextOWishListName(){
-        return createdWishListPage.wishListName.shouldBe(Condition.appear).getText();
-    }
-
     public void deleteWishList(){
-        createdWishListPage.settingsButton.shouldBe(Condition.visible).click();
-        createdWishListPage.deleteWishButton.shouldBe(Condition.appear).doubleClick().doubleClick();
+        createdWishListPage.settingsButton.click();
+        createdWishListPage.deleteWisDeleteButton.click();
+        createdWishListPage.deleteWisConfirmButton.click();
+
     }
 
     public String getPrivacyTagText(){
@@ -51,7 +39,7 @@ public class CreatedWishListPageSteps {
     }
 
     public void createNewWishList(){
-       createdWishListPage.createWishListButton.click();
+       createdWishListPage.createWishListButton.shouldBe(Condition.visible).click();
        createdWishListPage.createWishListWithNameButton.shouldBe(Condition.appear).click();
     }
 
