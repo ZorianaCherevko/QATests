@@ -54,4 +54,13 @@ public class CreatedWishListPageSteps {
        createdWishListPage.createWishListButton.shouldBe(Condition.visible).click();
        createdWishListPage.createWishListWithNameButton.shouldBe(Condition.appear).click();
     }
+
+    public int getWishItemTitlesSize(){
+        return createdWishListPage.wishItemTitle.size();
+    }
+
+    public String getWishItemsCount(){
+        return createdWishListPage.wishItemsCount.getText();
+
+    }
 }

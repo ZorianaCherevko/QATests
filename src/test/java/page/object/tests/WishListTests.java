@@ -21,7 +21,7 @@ public class WishListTests extends BaseTests {
     public SearchResultsPageSteps getSearchResultsPageSteps = new SearchResultsPageSteps();
 
 
-    @Test
+    @Test(priority = 1)
     public void checkCreateWishList() {
         getHomePageSteps.clickLogIn();
         getLogInPageSteps.logIn(EMAIL, PASSWORD);
@@ -31,7 +31,7 @@ public class WishListTests extends BaseTests {
         assertEquals(getCreatedWishListPageSteps.getTextOfAmountOfWishLists(), EXPECTED_AMOUNT_OF_WISH_LISTS);
     }
 
-    @Test
+    @Test(priority = 2)
     public void checkUpdateWishList() {
         getHomePageSteps.clickLogIn();
         getLogInPageSteps.logIn(EMAIL, PASSWORD);
@@ -40,7 +40,7 @@ public class WishListTests extends BaseTests {
         getCreatedWishListPageSteps.makeWishListPrivate();
         assertEquals(getCreatedWishListPageSteps.getPrivacyTagText(), PRIVACY_TAG);
     }
-    @Test
+    @Test(priority = 3)
     public void checkDeleteWishList() {
         getHomePageSteps.clickLogIn();
         getLogInPageSteps.logIn(EMAIL, PASSWORD);
@@ -50,7 +50,7 @@ public class WishListTests extends BaseTests {
         assertEquals(getWishListPageSteps.getTextOfWishPageCount(),EXPECTED_AMOUNT_OF_WISH_LISTS_AFTER_DELETING_ALL);
     }
 
-    @Test
+    @Test(priority = 4)
     public void checkCreateMoreThanFiveWishList() {
         getHomePageSteps.clickLogIn();
         getLogInPageSteps.logIn(EMAIL, PASSWORD);
@@ -62,8 +62,8 @@ public class WishListTests extends BaseTests {
         assertFalse(getCreatedWishListPageSteps.getCreateWishListButton().isDisplayed());
     }
 
-    @Test
-    public void checkAddToWishList() {
+    @Test(priority = 5)
+    public void checkDeleteNotEmptyWishList() {
         getHomePageSteps.clickLogIn();
         getLogInPageSteps.logIn(EMAIL, PASSWORD);
         getAccountPageSteps.clickWishList();
@@ -76,6 +76,21 @@ public class WishListTests extends BaseTests {
         getCreatedWishListPageSteps.deleteWishList();
         getWishListPageSteps.getWishPageCount();
         assertEquals(getWishListPageSteps.getTextOfWishPageCount(),EXPECTED_AMOUNT_OF_WISH_LISTS_AFTER_DELETING_ALL);
+
+    }
+
+    @Test(priority = 6)
+    public void checkAddToWishList() {
+        getHomePageSteps.clickLogIn();
+        getLogInPageSteps.logIn(EMAIL, PASSWORD);
+        getAccountPageSteps.clickWishList();
+        getWishListPageSteps.createNewWishList();
+        getCreatedWishListPageSteps.clickAddProducts();
+        getHomePageSteps.searchByKeyword(SEARCH_KEYWORD);
+        getSearchResultsPageSteps.clickThreeAddToWishlistButtons();
+        getSearchResultsPageSteps.clickGoToWishList();
+        getWishListPageSteps.clickCreatedList();
+        assertEquals(getCreatedWishListPageSteps.getWishItemTitlesSize(), 3);
 
     }
 

@@ -1,8 +1,10 @@
 package page.object.pages;
 
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 import static org.openqa.selenium.By.xpath;
 
 public class CreatedWishListPage {
@@ -18,4 +20,7 @@ public class CreatedWishListPage {
     public SelenideElement createWishListWithNameButton = $(xpath("//button[@id='wishlist-create-button']"));
     public SelenideElement addProductsButton = $(xpath("//div[@class='wishlist-empty-text']//a[contains(@href,'board')]"));
     public SelenideElement createWishListButton = $(xpath("//button[@class='wishlist-create-trigger wishlist-button wishlist-button-icon-before wishlist-button-primary']"));
+    public ElementsCollection wishItemTitle = $$(xpath("//div[@class='wishlist-item-product-title']"));
+    public SelenideElement wishItemsCount = $(xpath("//div[@class='wishlist-page-header-info']//span[@class='wishlist-page-header-count']"));
+
 }

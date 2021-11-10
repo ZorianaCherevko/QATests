@@ -16,6 +16,10 @@ public class HomePageSteps {
         homePage.searchButton.shouldBe(Condition.visible).click();
     }
 
+    public void inputByKeyword(String keyword){
+        homePage.searchInput.sendKeys(keyword);
+    }
+
 
     public void clickClearHistory(){
         homePage.clearHistoryButton.click();
@@ -37,11 +41,10 @@ public class HomePageSteps {
         return homePage.dropDownListResults.size();
     }
 
-
-
     public SelenideElement getDropDownList(){
-        return homePage.dropDownList.shouldBe(Condition.visible);
+        return homePage.dropDownList;
     }
+
 
     public SelenideElement getSearchInput(){
         return homePage.searchInput;

@@ -40,7 +40,7 @@ public class UserTests extends BaseTest {
     @Test
     @Description("GET /api/users/{user-id}")
     public void checkThatGetUserByIdAsStringReturns200(){
-        assertEquals(userSteps.getInfoByUserIdAsString(USER_STRING_ID).getStatusCode(),NOT_FOUND);
+        assertEquals(userSteps.getInfoByUserIdAsString(USER_STRING_ID).getStatusCode(),OK);
     }
 
     @Test

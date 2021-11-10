@@ -62,12 +62,12 @@ public class SearchResultsTests extends BaseTests {
     }
 
     @Test
-    public void checkThatSearchClearHistoryWorks() {
+    public void checkThatClearHistoryWorks() {
         getHomePageSteps.searchByKeyword(SEARCH_KEYWORD);
         getHomePageSteps.searchByKeyword(SECOND_SEARCH_KEYWORD);
         getHomePageSteps.clickSearchInput();
+        getHomePageSteps.getDropDownList();
         getHomePageSteps.clickClearHistory();
-        getHomePageSteps.clickSearchInput();
         assertFalse(getHomePageSteps.getDropDownList().isDisplayed());
     }
 
