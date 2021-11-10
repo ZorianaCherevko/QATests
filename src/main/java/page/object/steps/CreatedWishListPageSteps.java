@@ -43,7 +43,7 @@ public class CreatedWishListPageSteps {
 
     public void deleteWishList(){
         createdWishListPage.settingsButton.shouldBe(Condition.visible).click();
-        createdWishListPage.deleteWishButton.doubleClick().doubleClick();
+        createdWishListPage.deleteWishButton.shouldBe(Condition.appear).doubleClick().doubleClick();
     }
 
     public String getPrivacyTagText(){
@@ -51,7 +51,7 @@ public class CreatedWishListPageSteps {
     }
 
     public void createNewWishList(){
-       createdWishListPage.createWishListButton.shouldBe(Condition.visible).click();
+       createdWishListPage.createWishListButton.click();
        createdWishListPage.createWishListWithNameButton.shouldBe(Condition.appear).click();
     }
 

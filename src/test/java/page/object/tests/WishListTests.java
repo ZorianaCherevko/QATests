@@ -21,7 +21,7 @@ public class WishListTests extends BaseTests {
     public SearchResultsPageSteps getSearchResultsPageSteps = new SearchResultsPageSteps();
 
 
-    @Test(priority = 1)
+    @Test
     public void checkCreateWishList() {
         getHomePageSteps.clickLogIn();
         getLogInPageSteps.logIn(EMAIL, PASSWORD);
@@ -31,16 +31,16 @@ public class WishListTests extends BaseTests {
         assertEquals(getCreatedWishListPageSteps.getTextOfAmountOfWishLists(), EXPECTED_AMOUNT_OF_WISH_LISTS);
     }
 
-    @Test(priority = 2)
+    @Test
     public void checkUpdateWishList() {
         getHomePageSteps.clickLogIn();
         getLogInPageSteps.logIn(EMAIL, PASSWORD);
         getAccountPageSteps.clickWishList();
-        getWishListPageSteps.clickCreatedList();
+        getWishListPageSteps.createNewWishList();
         getCreatedWishListPageSteps.makeWishListPrivate();
         assertEquals(getCreatedWishListPageSteps.getPrivacyTagText(), PRIVACY_TAG);
     }
-    @Test(priority = 3)
+    @Test
     public void checkDeleteWishList() {
         getHomePageSteps.clickLogIn();
         getLogInPageSteps.logIn(EMAIL, PASSWORD);
@@ -50,7 +50,7 @@ public class WishListTests extends BaseTests {
         assertEquals(getWishListPageSteps.getTextOfWishPageCount(),EXPECTED_AMOUNT_OF_WISH_LISTS_AFTER_DELETING_ALL);
     }
 
-    @Test(priority = 4)
+    @Test
     public void checkCreateMoreThanFiveWishList() {
         getHomePageSteps.clickLogIn();
         getLogInPageSteps.logIn(EMAIL, PASSWORD);
@@ -62,7 +62,7 @@ public class WishListTests extends BaseTests {
         assertFalse(getCreatedWishListPageSteps.getCreateWishListButton().isDisplayed());
     }
 
-    @Test(priority = 5)
+    @Test
     public void checkDeleteNotEmptyWishList() {
         getHomePageSteps.clickLogIn();
         getLogInPageSteps.logIn(EMAIL, PASSWORD);
@@ -79,7 +79,7 @@ public class WishListTests extends BaseTests {
 
     }
 
-    @Test(priority = 6)
+    @Test
     public void checkAddToWishList() {
         getHomePageSteps.clickLogIn();
         getLogInPageSteps.logIn(EMAIL, PASSWORD);
@@ -93,6 +93,8 @@ public class WishListTests extends BaseTests {
         assertEquals(getCreatedWishListPageSteps.getWishItemTitlesSize(), 3);
 
     }
+
+
 
 
 }
