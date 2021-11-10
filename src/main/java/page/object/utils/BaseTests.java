@@ -37,14 +37,4 @@ public class BaseTests {
         closeWebDriver();
     }
 
-    @AfterTest
-    public void clean(){
-        open(URL);
-        getHomePageSteps.clickLogIn();
-        getLogInPageSteps.logIn(EMAIL, PASSWORD);
-        getAccountPageSteps.clickWishList();
-        if(getWishListPageSteps.getListHeadersCount()>0) {
-            getWishListPageSteps.deleteAllWishLists();
-        }
-    }
 }

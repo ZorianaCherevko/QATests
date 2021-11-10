@@ -1,11 +1,14 @@
 package page.object.tests;
 
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 import page.object.steps.*;
 import page.object.utils.BaseTests;
 
+import static com.codeborne.selenide.Selenide.open;
 import static org.testng.Assert.*;
 import static page.object.test.cred.SearchKeywords.SEARCH_KEYWORD;
+import static page.object.test.cred.Urls.BASE_URL;
 import static page.object.test.cred.WishListData.*;
 import static page.object.test.cred.UserCred.EMAIL;
 import static page.object.test.cred.UserCred.PASSWORD;
@@ -18,6 +21,17 @@ public class WishListTests extends BaseTests {
     public WishListPageSteps getWishListPageSteps = new WishListPageSteps();
     public CreatedWishListPageSteps getCreatedWishListPageSteps = new CreatedWishListPageSteps();
     public SearchResultsPageSteps getSearchResultsPageSteps = new SearchResultsPageSteps();
+
+    @AfterTest
+    public void clean(){
+        open(BASE_URL);
+        getHomePageSteps.clickLogIn();
+        getLogInPageSteps.logIn(EMAIL, PASSWORD);
+        getAccountPageSteps.clickWishList();
+        if(getWishListPageSteps.getListHeadersCount()>0) {
+            getWishListPageSteps.deleteAllWishLists();
+        }
+    }
 
 
     @Test
