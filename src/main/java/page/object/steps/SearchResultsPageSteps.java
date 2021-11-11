@@ -24,9 +24,11 @@ public class SearchResultsPageSteps {
     public void clickGoToWishList(){
         searchResultsPage.goToWishListButton.click();
     }
+
     public void clickFirstSearchResult(){
         searchResultsPage.searchResultProduct.click();
     }
+
     public int getSearchResultsListSize(){
         return searchResultsPage.searchResultProductsListText.size();
     }

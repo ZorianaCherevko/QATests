@@ -1,8 +1,6 @@
 package page.object.steps;
 
-import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.Keys;
 import page.object.pages.HomePage;
@@ -14,10 +12,6 @@ public class HomePageSteps {
     public void searchByKeyword(String keyword){
         homePage.searchInput.sendKeys(keyword);
         homePage.searchButton.shouldBe(Condition.visible).click();
-    }
-
-    public void inputByKeyword(String keyword){
-        homePage.searchInput.sendKeys(keyword);
     }
 
     public void clickClearHistory(){

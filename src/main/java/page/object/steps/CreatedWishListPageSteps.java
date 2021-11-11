@@ -9,7 +9,7 @@ public class CreatedWishListPageSteps {
     public CreatedWishListPage createdWishListPage = new CreatedWishListPage();
 
     public String getTextOfAmountOfWishLists(){
-        return createdWishListPage.amountOfWishLists.shouldBe(Condition.appear).getText();
+        return createdWishListPage.amountOfWishLists.shouldBe(Condition.visible).getText();
     }
 
     public void makeWishListPrivate(){

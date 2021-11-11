@@ -5,8 +5,6 @@ import org.testng.annotations.Test;
 import page.object.steps.*;
 import page.object.utils.BaseTests;
 
-import java.util.Objects;
-
 import static com.codeborne.selenide.Selenide.refresh;
 import static org.testng.Assert.*;
 import static page.object.test.cred.SearchKeywords.SEARCH_KEYWORD;
@@ -58,16 +56,7 @@ public class WishListTests extends BaseTests {
         getHomePageSteps.clickLogIn();
         getLogInPageSteps.logIn(EMAIL, PASSWORD);
         getAccountPageSteps.clickWishList();
-        getWishListPageSteps.createNewWishListFive();
-        getCreatedWishListPageSteps.clickGoBackToWishLists();
-        getWishListPageSteps.createNewWishListFive();
-        getCreatedWishListPageSteps.clickGoBackToWishLists();
-        getWishListPageSteps.createNewWishListFive();
-        getCreatedWishListPageSteps.clickGoBackToWishLists();
-        getWishListPageSteps.createNewWishListFive();
-        getCreatedWishListPageSteps.clickGoBackToWishLists();
-        getWishListPageSteps.createNewWishListFive();
-        getCreatedWishListPageSteps.clickGoBackToWishLists();
+        getWishListPageSteps.createWishListFiveTimes();
         refresh();
         assertFalse(getWishListPageSteps.getCreateNewWishListButton().is(Condition.exist));
     }

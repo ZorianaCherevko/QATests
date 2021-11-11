@@ -4,10 +4,7 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import page.object.pages.CreatedWishListPage;
 import page.object.pages.WishListPage;
-
 import java.util.Objects;
-
-import static com.codeborne.selenide.Selenide.refresh;
 
 public class WishListPageSteps {
 
@@ -54,6 +51,14 @@ public class WishListPageSteps {
     public void createNewWishListFive(){
         wishListPage.createWishListButton.shouldBe(Condition.exist).click();
         wishListPage.createWishListWithNameButton.shouldBe(Condition.visible).click();
+    }
+
+    public void createWishListFiveTimes() {
+        for(int i = 1; i<=5; i++) {
+            wishListPage.createWishListButton.shouldBe(Condition.exist).click();
+            wishListPage.createWishListWithNameButton.shouldBe(Condition.visible).click();
+            createdWishListPage.goBackToWishLists.click();
+        }
     }
 
 
