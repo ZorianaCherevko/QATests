@@ -12,6 +12,7 @@ import page.object.steps.WishListPageSteps;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
+import static page.object.test.cred.Urls.BASE_URL;
 import static page.object.test.cred.UserCred.EMAIL;
 import static page.object.test.cred.UserCred.PASSWORD;
 
@@ -35,6 +36,17 @@ public class BaseTests {
     @AfterMethod
     public void tearDown(){
         closeWebDriver();
+    }
+
+    @AfterTest
+    public void clean(){
+        open(BASE_URL);
+        getHomePageSteps.clickLogIn();
+        getLogInPageSteps.logIn(EMAIL, PASSWORD);
+        getAccountPageSteps.clickWishList();
+        if(getWishListPageSteps.getListHeadersCount()>0) {
+            getWishListPageSteps.deleteAllWishLists();
+        }
     }
 
 }
