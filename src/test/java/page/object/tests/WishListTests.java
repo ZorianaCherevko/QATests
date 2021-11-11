@@ -1,5 +1,6 @@
 package page.object.tests;
 
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 import page.object.steps.*;
@@ -7,6 +8,7 @@ import page.object.utils.BaseTests;
 
 import java.util.Objects;
 
+import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 import static org.testng.Assert.*;
 import static page.object.test.cred.SearchKeywords.SEARCH_KEYWORD;
@@ -23,6 +25,17 @@ public class WishListTests extends BaseTests {
     public WishListPageSteps getWishListPageSteps = new WishListPageSteps();
     public CreatedWishListPageSteps getCreatedWishListPageSteps = new CreatedWishListPageSteps();
     public SearchResultsPageSteps getSearchResultsPageSteps = new SearchResultsPageSteps();
+
+
+    private static final String WISH_URL ="https://www.board-game.co.uk/";
+
+    @AfterMethod
+    public void tearDown(){
+        open(WISH_URL);
+        if(getWishListPageSteps.getListHeadersCount()>0) {
+            getWishListPageSteps.deleteAllWishLists();
+        }
+    }
 
     @Test
     public void checkCreateWishList() {
