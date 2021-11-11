@@ -27,11 +27,6 @@ public class SearchResultsPageSteps {
     public void clickFirstSearchResult(){
         searchResultsPage.searchResultProduct.click();
     }
-
-    public String getTextOfSearchResultsCount(){
-        return searchResultsPage.searchResultsCount.shouldBe(Condition.appear).getText();
-    }
-
     public int getSearchResultsListSize(){
         return searchResultsPage.searchResultProductsListText.size();
     }

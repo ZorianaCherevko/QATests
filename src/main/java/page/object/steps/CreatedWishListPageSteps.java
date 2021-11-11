@@ -12,29 +12,20 @@ public class CreatedWishListPageSteps {
         return createdWishListPage.amountOfWishLists.shouldBe(Condition.appear).getText();
     }
 
-    public SelenideElement getCreateWishListButton(){
-        return createdWishListPage.createWishListButton.shouldBe(Condition.visible);
-    }
-
-    public SelenideElement getCreateWishListButtonAfterCreatingAllWishLists(){
-        return createdWishListPage.createWishListButton;
-    }
-
     public void makeWishListPrivate(){
-        createdWishListPage.settingsButton.shouldBe(Condition.visible).click();
+        createdWishListPage.settingsButton.shouldBe(Condition.exist).click();
         createdWishListPage.makePrivateButton.click();
         createdWishListPage.saveChangesButton.click();
     }
 
     public void clickAddProducts(){
-        createdWishListPage.addProductsButton.click();
+        createdWishListPage.addProductsButton.shouldBe(Condition.exist).click();
     }
 
     public void deleteWishList(){
         createdWishListPage.settingsButton.click();
-        createdWishListPage.deleteWisDeleteButton.click();
-        createdWishListPage.deleteWisConfirmButton.click();
-
+        createdWishListPage.deleteWisDeleteButton.shouldBe(Condition.exist).click();
+        createdWishListPage.deleteWisConfirmButton.shouldBe(Condition.exist).click();
     }
 
     public String getPrivacyTagText(){
@@ -43,7 +34,6 @@ public class CreatedWishListPageSteps {
 
     public void createNewWishList(){
        createdWishListPage.createWishListButton.shouldBe(Condition.visible).click();
-       createdWishListPage.createWishListWithNameButton.shouldBe(Condition.visible);
        createdWishListPage.createWishListWithNameButton.click();
     }
 
@@ -53,6 +43,13 @@ public class CreatedWishListPageSteps {
 
     public String getWishItemsCount(){
         return createdWishListPage.wishItemsCount.getText();
+    }
 
+    public SelenideElement getWishNameInput(){
+       return createdWishListPage.wishNameInput.shouldBe(Condition.visible);
+    }
+
+    public void clickGoBackToWishLists(){
+        createdWishListPage.goBackToWishLists.click();
     }
 }

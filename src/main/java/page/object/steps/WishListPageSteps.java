@@ -13,8 +13,8 @@ public class WishListPageSteps {
     public CreatedWishListPage createdWishListPage = new CreatedWishListPage();
 
     public void createNewWishList(){
-        wishListPage.createWishListButton.shouldBe(Condition.visible).click();
-        wishListPage.createWishListWithNameButton.shouldBe(Condition.visible).click();
+        wishListPage.createWishListButton.shouldBe(Condition.exist).click();
+        wishListPage.createWishListWithNameButton.shouldBe(Condition.exist).click();
     }
 
     public void clickCreatedList(){
@@ -37,10 +37,19 @@ public class WishListPageSteps {
         while(!Objects.equals(getTextOfWishPageCount(), "(0/5)")) {
             wishListPage.createdListHeaderButton.click();
             createdWishListPage.settingsButton.click();
-            //while(!createdWishListPage.deleteWisDeleteButton.C)
-            createdWishListPage.deleteWisDeleteButton.shouldBe(Condition.appear).click();
-            createdWishListPage.deleteWisConfirmButton.click();
+            createdWishListPage.deleteWisDeleteButton.shouldBe(Condition.exist).click();
+            createdWishListPage.deleteWisConfirmButton.shouldBe(Condition.exist).click();
         }
     }
+
+    public SelenideElement getCreateNewWishListButton(){
+        return wishListPage.createWishListButton.shouldNotBe(Condition.exist);
+    }
+
+    public void createNewWishListFive(){
+        wishListPage.createWishListButton.shouldBe(Condition.exist).click();
+        wishListPage.createWishListWithNameButton.shouldBe(Condition.visible).click();
+    }
+
 
 }
