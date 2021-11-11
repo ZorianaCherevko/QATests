@@ -30,7 +30,7 @@ public class WishListTests extends BaseTests {
     private static final String WISH_URL ="https://www.board-game.co.uk/";
 
     @AfterMethod
-    public void tearDown(){
+    public void clean(){
         open(WISH_URL);
         if(getWishListPageSteps.getListHeadersCount()>0) {
             getWishListPageSteps.deleteAllWishLists();

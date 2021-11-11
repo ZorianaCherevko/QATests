@@ -18,7 +18,13 @@ import static page.object.test.cred.UserCred.PASSWORD;
 
 public class BaseTests {
 
+    public WishListPageSteps getWishListPageSteps = new WishListPageSteps();
+
     private static final String URL ="https://www.board-game.co.uk/";
+    private static final String WISH_URL ="https://www.board-game.co.uk/my-account/wish-list/";
+    public HomePageSteps getHomePageSteps = new HomePageSteps();
+    public LogInPageSteps getLogInPageSteps = new LogInPageSteps();
+    public AccountPageSteps getAccountPageSteps = new AccountPageSteps();
 
     @BeforeMethod
     public void profileSetUp(){
@@ -29,6 +35,10 @@ public class BaseTests {
 
     @AfterMethod
     public void tearDown(){
+        open(WISH_URL);
+        if(getWishListPageSteps.getListHeadersCount()>0) {
+            getWishListPageSteps.deleteAllWishLists();
+        }
         closeWebDriver();
     }
 
