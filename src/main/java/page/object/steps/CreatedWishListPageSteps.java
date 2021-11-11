@@ -16,6 +16,10 @@ public class CreatedWishListPageSteps {
         return createdWishListPage.createWishListButton.shouldBe(Condition.visible);
     }
 
+    public SelenideElement getCreateWishListButtonAfterCreatingAllWishLists(){
+        return createdWishListPage.createWishListButton;
+    }
+
     public void makeWishListPrivate(){
         createdWishListPage.settingsButton.shouldBe(Condition.visible).click();
         createdWishListPage.makePrivateButton.click();

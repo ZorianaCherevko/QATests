@@ -24,17 +24,6 @@ public class WishListTests extends BaseTests {
     public CreatedWishListPageSteps getCreatedWishListPageSteps = new CreatedWishListPageSteps();
     public SearchResultsPageSteps getSearchResultsPageSteps = new SearchResultsPageSteps();
 
-    @AfterTest
-    public void clean(){
-        open(BASE_URL);
-        getHomePageSteps.clickLogIn();
-
-        getLogInPageSteps.logIn(EMAIL, PASSWORD);
-        getAccountPageSteps.clickWishList();
-        if(getWishListPageSteps.getListHeadersCount()>0) {
-            getWishListPageSteps.deleteAllWishLists();
-        }
-    }
 
 
     @Test
@@ -76,7 +65,7 @@ public class WishListTests extends BaseTests {
         while (!Objects.equals(getCreatedWishListPageSteps.getTextOfAmountOfWishLists(), "(5/5)")) {
             getCreatedWishListPageSteps.createNewWishList();
         }
-        assertFalse(getCreatedWishListPageSteps.getCreateWishListButton().isDisplayed());
+        assertFalse(getCreatedWishListPageSteps.getCreateWishListButtonAfterCreatingAllWishLists().isDisplayed());
     }
 
     @Test
