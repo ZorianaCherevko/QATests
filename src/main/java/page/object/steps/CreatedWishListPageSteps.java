@@ -13,9 +13,8 @@ public class CreatedWishListPageSteps {
     }
 
     public SelenideElement getCreateWishListButton(){
-        return createdWishListPage.createWishListButton.shouldBe(Condition.hidden);
+        return createdWishListPage.createWishListButton.shouldBe(Condition.visible);
     }
-
 
     public void makeWishListPrivate(){
         createdWishListPage.settingsButton.shouldBe(Condition.visible).click();
@@ -40,7 +39,8 @@ public class CreatedWishListPageSteps {
 
     public void createNewWishList(){
        createdWishListPage.createWishListButton.shouldBe(Condition.visible).click();
-       createdWishListPage.createWishListWithNameButton.shouldBe(Condition.appear).click();
+       createdWishListPage.createWishListWithNameButton.shouldBe(Condition.visible);
+       createdWishListPage.createWishListWithNameButton.click();
     }
 
     public int getWishItemTitlesSize(){

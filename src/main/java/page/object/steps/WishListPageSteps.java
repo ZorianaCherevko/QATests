@@ -37,7 +37,8 @@ public class WishListPageSteps {
         while(!Objects.equals(getTextOfWishPageCount(), "(0/5)")) {
             wishListPage.createdListHeaderButton.click();
             createdWishListPage.settingsButton.click();
-            createdWishListPage.deleteWisDeleteButton.click();
+            //while(!createdWishListPage.deleteWisDeleteButton.C)
+            createdWishListPage.deleteWisDeleteButton.shouldBe(Condition.appear).click();
             createdWishListPage.deleteWisConfirmButton.click();
         }
     }

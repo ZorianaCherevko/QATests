@@ -5,6 +5,8 @@ import org.testng.annotations.Test;
 import page.object.steps.*;
 import page.object.utils.BaseTests;
 
+import java.util.Objects;
+
 import static com.codeborne.selenide.Selenide.open;
 import static org.testng.Assert.*;
 import static page.object.test.cred.SearchKeywords.SEARCH_KEYWORD;
@@ -26,6 +28,7 @@ public class WishListTests extends BaseTests {
     public void clean(){
         open(BASE_URL);
         getHomePageSteps.clickLogIn();
+
         getLogInPageSteps.logIn(EMAIL, PASSWORD);
         getAccountPageSteps.clickWishList();
         if(getWishListPageSteps.getListHeadersCount()>0) {
@@ -69,7 +72,8 @@ public class WishListTests extends BaseTests {
         getLogInPageSteps.logIn(EMAIL, PASSWORD);
         getAccountPageSteps.clickWishList();
         getWishListPageSteps.createNewWishList();
-        for(int i=1;i<=4;i++) {
+        getCreatedWishListPageSteps.getCreateWishListButton();
+        while (!Objects.equals(getCreatedWishListPageSteps.getTextOfAmountOfWishLists(), "(5/5)")) {
             getCreatedWishListPageSteps.createNewWishList();
         }
         assertFalse(getCreatedWishListPageSteps.getCreateWishListButton().isDisplayed());

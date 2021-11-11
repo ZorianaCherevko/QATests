@@ -14,9 +14,7 @@ public class CreatedWishListPage {
     public SelenideElement deleteWisConfirmButton = $(xpath("//button[@id='wishlist-edit-delete-confirm-trigger']"));
     public SelenideElement amountOfWishLists = $(xpath("//span[@class='wishlist-list-count']"));
     public SelenideElement settingsButton = $(xpath("//a[@class='wishlist-edit-trigger wishlist-action-bar-button icon-before']"));
-    public SelenideElement wishListNameInput = $(xpath("//input[@id='wishlist-create-name']"));
     public SelenideElement saveChangesButton = $(xpath("//button[@id='wishlist-edit-button-save']"));
-    public SelenideElement wishListName = $(xpath("//div[@class='wishlist-page-header-info']//span[@class='wishlist-page-header-name']"));
     public SelenideElement makePrivateButton = $(xpath("//input[@id='wishlist-edit-private']"));
     public SelenideElement privacyTag = $(xpath("//span[@class='wishlist-privacy-private active']"));
     public SelenideElement createWishListWithNameButton = $(xpath("//button[@id='wishlist-create-button']"));
