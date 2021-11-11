@@ -24,8 +24,6 @@ public class WishListTests extends BaseTests {
     public CreatedWishListPageSteps getCreatedWishListPageSteps = new CreatedWishListPageSteps();
     public SearchResultsPageSteps getSearchResultsPageSteps = new SearchResultsPageSteps();
 
-
-
     @Test
     public void checkCreateWishList() {
         getHomePageSteps.clickLogIn();

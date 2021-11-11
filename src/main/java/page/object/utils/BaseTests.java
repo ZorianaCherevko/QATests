@@ -35,18 +35,12 @@ public class BaseTests {
 
     @AfterMethod
     public void tearDown(){
-        closeWebDriver();
-    }
-
-    @AfterTest
-    public void clean(){
-        open(BASE_URL);
-        getHomePageSteps.clickLogIn();
-        getLogInPageSteps.logIn(EMAIL, PASSWORD);
-        getAccountPageSteps.clickWishList();
+        open(WISH_URL);
         if(getWishListPageSteps.getListHeadersCount()>0) {
             getWishListPageSteps.deleteAllWishLists();
         }
+        closeWebDriver();
     }
+
 
 }
