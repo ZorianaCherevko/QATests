@@ -1,11 +1,13 @@
 package page.object.tests;
 
+import com.codeborne.selenide.Condition;
 import org.testng.annotations.Test;
 import page.object.steps.*;
 import page.object.utils.BaseTests;
 
 import java.util.Objects;
 
+import static com.codeborne.selenide.Selenide.refresh;
 import static org.testng.Assert.*;
 import static page.object.test.cred.SearchKeywords.SEARCH_KEYWORD;
 import static page.object.test.cred.WishListData.*;
@@ -56,11 +58,18 @@ public class WishListTests extends BaseTests {
         getHomePageSteps.clickLogIn();
         getLogInPageSteps.logIn(EMAIL, PASSWORD);
         getAccountPageSteps.clickWishList();
-        while (!Objects.equals(getWishListPageSteps.getTextOfWishPageCount(), "(5/5)")) {
-            getWishListPageSteps.createNewWishListFive();
-            getCreatedWishListPageSteps.clickGoBackToWishLists();
-        }
-        assertFalse(getWishListPageSteps.getCreateNewWishListButton().exists());
+        getWishListPageSteps.createNewWishListFive();
+        getCreatedWishListPageSteps.clickGoBackToWishLists();
+        getWishListPageSteps.createNewWishListFive();
+        getCreatedWishListPageSteps.clickGoBackToWishLists();
+        getWishListPageSteps.createNewWishListFive();
+        getCreatedWishListPageSteps.clickGoBackToWishLists();
+        getWishListPageSteps.createNewWishListFive();
+        getCreatedWishListPageSteps.clickGoBackToWishLists();
+        getWishListPageSteps.createNewWishListFive();
+        getCreatedWishListPageSteps.clickGoBackToWishLists();
+        refresh();
+        assertFalse(getWishListPageSteps.getCreateNewWishListButton().is(Condition.exist));
     }
 
     @Test

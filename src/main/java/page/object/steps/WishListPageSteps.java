@@ -7,6 +7,8 @@ import page.object.pages.WishListPage;
 
 import java.util.Objects;
 
+import static com.codeborne.selenide.Selenide.refresh;
+
 public class WishListPageSteps {
 
     public WishListPage wishListPage = new WishListPage();
@@ -37,8 +39,11 @@ public class WishListPageSteps {
         while(!Objects.equals(getTextOfWishPageCount(), "(0/5)")) {
             wishListPage.createdListHeaderButton.click();
             createdWishListPage.settingsButton.click();
-            createdWishListPage.deleteWisDeleteButton.shouldBe(Condition.exist).click();
-            createdWishListPage.deleteWisConfirmButton.shouldBe(Condition.exist).click();
+            createdWishListPage.deleteWisDeleteButton.click();
+            while(!createdWishListPage.deleteWisConfirmButton.is(Condition.visible)) {
+                createdWishListPage.deleteWisDeleteButton.click();
+            }
+            createdWishListPage.deleteWisConfirmButton.click();
         }
     }
 
